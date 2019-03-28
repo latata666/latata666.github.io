@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Django 学习 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  
+  
+  <meta name="description" content="一、搭建环境 文中用的是Python3.5.3以及Django1.10.5,IDE是pycharm，操作系统是win10。 二、创建项目 1.进入命令行模式，进入到你要创建项目的目录下2.输入命令：    &amp;gt;django-admin startproject myblog ps:”myblog”为项目名称，自己想，不过似乎不要中文更好些（一般是这样，我也没试过不清楚会不会出现错误）。这样我们">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django 学习">
+<meta property="og:url" content="http://yoursite.com/2019/03/27/django-1/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一、搭建环境 文中用的是Python3.5.3以及Django1.10.5,IDE是pycharm，操作系统是win10。 二、创建项目 1.进入命令行模式，进入到你要创建项目的目录下2.输入命令：    &amp;gt;django-admin startproject myblog ps:”myblog”为项目名称，自己想，不过似乎不要中文更好些（一般是这样，我也没试过不清楚会不会出现错误）。这样我们">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-03-27T05:39:48.860Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Django 学习">
+<meta name="twitter:description" content="一、搭建环境 文中用的是Python3.5.3以及Django1.10.5,IDE是pycharm，操作系统是win10。 二、创建项目 1.进入命令行模式，进入到你要创建项目的目录下2.输入命令：    &amp;gt;django-admin startproject myblog ps:”myblog”为项目名称，自己想，不过似乎不要中文更好些（一般是这样，我也没试过不清楚会不会出现错误）。这样我们">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/images/default-avatar.jpg">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/highlight.css">
+</head>
+</html>
+<body>
+  <div id="fullpage" class="mobile-nav-right">
+    
+      <div id="wrapper" title="图片来自网络">
+    
+    
+      <header id="header">
+  <div id="nav-toggle" class="nav-toggle"></div>
+  <div class="head-box global-width">
+    <nav class="nav-box nav-right">
+      
+        <a class="nav-item" href="/" title>首页</a>
+      
+        <a class="nav-item" href="/archives" title>葵花宝典</a>
+      
+        <a class="nav-item" href="/" title>侠客行</a>
+      
+    </nav>
+  </div>
+</header>
+      <div id="middlecontent" title class="global-width sidebar-right">
+        <section id="main"><article id="post-django-1" class="article global-container article-type-post" itemscope itemprop="blogPost">
+  
+    <header class="article-header">
+      
+  
+    <h1 class="article-title" itemprop="name">
+      Django 学习
+    </h1>
+  
+
+    </header>
+  
+  <div class="article-meta">
+    <a href="/2019/03/27/django-1/" class="article-date">
+  <time datetime="2019-03-27T05:38:40.000Z" itemprop="datePublished">2019-03-27</time>
+</a>
+    
+    
+  </div>
+  
+    <span id="busuanzi_container_page_pv">
+      本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+    </span>
+  
+
+  <div class="article-inner">
+    
+    <div class="article-content article-content-doorframe" itemprop="articleBody">
+      
+        <p>一、搭建环境</p>
+<p>文中用的是Python3.5.3以及Django1.10.5,IDE是pycharm，操作系统是win10。</p>
+<p>二、创建项目</p>
+<p>1.进入命令行模式，进入到你要创建项目的目录下<br>2.输入命令：<br>    &gt;django-admin startproject myblog</p>
+<p>ps:”myblog”为项目名称，自己想，不过似乎不要中文更好些（一般是这样，我也没试过不清楚会不会出现错误）。<br>这样我们就可以在这个目录中看到项目文件夹了（无图，自己去看自己的吧）。<br>三、项目目录介绍<br>1.项目目录结构：</p>
+<pre><code>manage.py
+myblog：
+
+init.py
+settings.py
+urls.py
+wsgi.py
+</code></pre><p>2.manage.py</p>
+<p>是与项目进行交互的命令行工具集的入口，是Django中的项目管理器，运行命令：</p>
+<p>python manage.py 可以查看manage.py 的相关命令，其中最常用的是<em> runserver </em>命令，可以启动Django自带的服务器，命令格式如下:<br>python manage.py runserver [portname]</p>
+<pre><code>ps:portname指的是端口号，默认情况下是8000
+</code></pre><p>3.myblog目录</p>
+<p>这个目录是项目的一个容器，包含项目的一些基本配置，文件名理论上可以随意修改，但并不建议这样做。这是因为配置文件中很多配置引用到这个文件名，如果修改，将会牵一发而动全身，带来不必要的麻烦。<br>接下来是myblog目录下的.py文件：<br>1.wsgi.py</p>
+<p>wsgi（Python Web Server Gateway Interface）即Python服务器网关接口，是python应用与Web服务器之间的接口。<br>2.urls.py</p>
+<p>URL配置文件。Django项目中所有地址（页面）都需要我们去配置URL。<br>3.settins.py</p>
+<pre><code>BASE_DIR:项目的根目录；
+SECRET_KEY:安全码；
+DEBUG:调试，实际生产中需要将其值设置为* false *；
+ALLOWED_HOSTS:设置允许的外界访问的地址；
+INSTALLED_APPS:记录加载的应用；
+MIDLEWEAR:自带的工具集；
+ROOT_URLCONF:URL根文件的配置文件；
+TEMPLATES:模板文件，模板指的是一个个HTML文件；
+WSGI_APPLICATION:
+DATABASES:数据库文件，默认是sqlite3，如果要使用其他数据库可以到Django官网有关数据库配置的文档了解；
+AUTH_PASSWORD_VALIDATORS：与密码认证有关；
+LANGUAGE_CODE:语言，默认是un-es即美式英语；
+TIME_ZONE:时区；
+STATIC_URL:静态文件（CSS，JavaScript，images等）的地址。
+</code></pre><p>4.init.py</p>
+<p>声明模块，内容默认为空。<br>3.创建应用</p>
+<p>创建步骤：</p>
+<pre><code>打开命令行，进入项目manage.py的同级目录
+输入：
+python manage.py startapp blog
+添加应用名到settings.py中的INSTALLED_APPS中（应用名不可以与模块名相同）
+</code></pre><p>4.应用目录介绍<br>应用目录结构.PNG</p>
+<pre><code>migrations:一个数据迁移的模块，内容自动生成
+admin.py 该应用的后台管理系统
+apps.py 该应用的一些配置，Django-1.9以后自动生成
+models.py 数据模块，使用ORM框架
+tests.py 自动化测试的模块
+
+views.py 执行响应的代码所在模块，是代码逻辑处理的主要地点，项目中大部分代码在这里编写
+</code></pre>
+      
+    </div>
+    
+      <footer class="article-footer">
+        完
+      </footer>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  <div class="article-nav-block">
+    
+  </div>
+  <div class="article-nav-block">
+    
+      <a href="/2019/03/27/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Hello World</div>
+        <strong class="article-nav-caption"></strong>
+      </a>
+    
+  </div>
+</nav>
+
+    
+<div id="gitmentContainer"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+  owner: '',
+  repo: '',
+  oauth: {
+    client_id: '',
+    client_secret: '',
+  },
+})
+gitment.render('gitmentContainer')
+</script>
+
+  
+  
+</article>
+</section>
+        <aside id="sidebar">
+  
+    <div class="widget-box">
+  <div class="avatar-box">
+    <img class="avatar" src="/images/default-avatar.jpeg" title="图片来自网络">
+    <h3 class="avatar-name">
+      
+        大侠萧金衍
+      
+    </h3>
+    <p class="avatar-slogan">
+      天不生我萧金衍，贱道万古如长夜
+    </p>
+  </div>
+</div>
+
+
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-box">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/03/27/django-1/">Django 学习</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/27/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+      </div>
+      <footer id="footer">
+  <div class="foot-box global-width">
+    &copy; 2019 John Doe &nbsp;&nbsp;
+    Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    &nbsp;|&nbsp;主题 <a href="https://github.com/latata666/latata666.github.io">antiquity</a>
+    <br>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span id="busuanzi_container_site_pv">第<span id="busuanzi_value_site_pv"></span>位大侠来访</span>
+  </div>
+</footer>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script src="/js/jquery-2.0.3.min.js"></script>
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+    </div>
+    <nav id="mobile-nav" class="mobile-nav-box">
+  <div class="mobile-nav-img mobile-nav-top"></div>
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">葵花宝典</a>
+  
+    <a href="/" class="mobile-nav-link">侠客行</a>
+  
+  <div class="mobile-nav-img  mobile-nav-bottom"></div>
+</nav>    
+  </div>
+</body>
+</html>
