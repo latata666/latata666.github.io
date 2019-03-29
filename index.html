@@ -84,52 +84,12 @@
 <p>文中用的是Python3.5.3以及Django1.10.5,IDE是pycharm，操作系统是win10。</p>
 <p>二、创建项目</p>
 <p>1.进入命令行模式，进入到你要创建项目的目录下<br>2.输入命令：<br>    &gt;django-admin startproject myblog</p>
-<p>ps:”myblog”为项目名称，自己想，不过似乎不要中文更好些（一般是这样，我也没试过不清楚会不会出现错误）。<br>这样我们就可以在这个目录中看到项目文件夹了（无图，自己去看自己的吧）。<br>三、项目目录介绍<br>1.项目目录结构：</p>
-<pre><code>manage.py
-myblog：
-
-init.py
-settings.py
-urls.py
-wsgi.py
-</code></pre><p>2.manage.py</p>
-<p>是与项目进行交互的命令行工具集的入口，是Django中的项目管理器，运行命令：</p>
-<p>python manage.py 可以查看manage.py 的相关命令，其中最常用的是<em> runserver </em>命令，可以启动Django自带的服务器，命令格式如下:<br>python manage.py runserver [portname]</p>
-<pre><code>ps:portname指的是端口号，默认情况下是8000
-</code></pre><p>3.myblog目录</p>
-<p>这个目录是项目的一个容器，包含项目的一些基本配置，文件名理论上可以随意修改，但并不建议这样做。这是因为配置文件中很多配置引用到这个文件名，如果修改，将会牵一发而动全身，带来不必要的麻烦。<br>接下来是myblog目录下的.py文件：<br>1.wsgi.py</p>
-<p>wsgi（Python Web Server Gateway Interface）即Python服务器网关接口，是python应用与Web服务器之间的接口。<br>2.urls.py</p>
-<p>URL配置文件。Django项目中所有地址（页面）都需要我们去配置URL。<br>3.settins.py</p>
-<pre><code>BASE_DIR:项目的根目录；
-SECRET_KEY:安全码；
-DEBUG:调试，实际生产中需要将其值设置为* false *；
-ALLOWED_HOSTS:设置允许的外界访问的地址；
-INSTALLED_APPS:记录加载的应用；
-MIDLEWEAR:自带的工具集；
-ROOT_URLCONF:URL根文件的配置文件；
-TEMPLATES:模板文件，模板指的是一个个HTML文件；
-WSGI_APPLICATION:
-DATABASES:数据库文件，默认是sqlite3，如果要使用其他数据库可以到Django官网有关数据库配置的文档了解；
-AUTH_PASSWORD_VALIDATORS：与密码认证有关；
-LANGUAGE_CODE:语言，默认是un-es即美式英语；
-TIME_ZONE:时区；
-STATIC_URL:静态文件（CSS，JavaScript，images等）的地址。
-</code></pre><p>4.init.py</p>
-<p>声明模块，内容默认为空。<br>3.创建应用</p>
-<p>创建步骤：</p>
-<pre><code>打开命令行，进入项目manage.py的同级目录
-输入：
-python manage.py startapp blog
-添加应用名到settings.py中的INSTALLED_APPS中（应用名不可以与模块名相同）
-</code></pre><p>4.应用目录介绍<br>应用目录结构.PNG</p>
-<pre><code>migrations:一个数据迁移的模块，内容自动生成
-admin.py 该应用的后台管理系统
-apps.py 该应用的一些配置，Django-1.9以后自动生成
-models.py 数据模块，使用ORM框架
-tests.py 自动化测试的模块
-
-views.py 执行响应的代码所在模块，是代码逻辑处理的主要地点，项目中大部分代码在这里编写
-</code></pre>
+<p>ps:”myblog”为项目名称，自己想，不过似乎不要中文更好些（一般是这样，我也没试过不清楚会不会出现错误）。<br>这样我们就可以在这个目录中看到项目文件夹了（无图，自己去看自己的吧）。<br>
+        
+          </p><p class="article-more-link">
+            <a href="/2019/03/27/django-1/#more">阅读全文</a>
+          </p>
+        
       
     </div>
     
